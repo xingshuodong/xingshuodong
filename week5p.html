@@ -1,0 +1,43 @@
+<html>
+    <head> 
+    </head>
+    <body>
+        <div id="components-demo">
+            <button-counter></button-counter>
+          </div>
+
+        <base-checkbox v-model="lovingVue"></base-checkbox>
+
+
+        <div id="app-7">
+            <ol>
+              <todo-item
+                v-for="item in groceryList"
+                v-bind:todo="item"
+                v-bind:key="item.id"
+              ></todo-item>
+            </ol>
+          </div>
+
+          <div id="app">  
+            <children>  
+                <span>SHOWING</span>   
+            </children>  
+        </div>
+
+    </body>
+</html>
+
+
+<script src="https://cdn.jsdelivr.net/npm/vue@2.6.11"></script>
+<script src=week5p.js></script>
+<script>  
+    var slottest = new Vue({  
+        el: '#app',  
+        components: {  
+            children: {    
+                template: "<button><slot></slot>TEST</button>"  
+            }  
+        }  
+    });  
+</script> 

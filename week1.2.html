@@ -1,0 +1,30 @@
+
+<html>
+    <head>
+        <style type="text/css">
+        button{
+            padding: 5px 20px;
+            height: 50px;
+            font-size: 16px;
+            }
+        </style>
+    </head>
+    <body>
+        <table id="table1">
+            <td>internal CSS -> <span style="color: rgb(219, 192, 35);"> page for pratical one</span></td>
+            <tr>
+            <td><span style="font-size: 10PX;">CSS is for sytles of how things in HTML looks</span></td>
+            <tr> 
+            <td><span style="font-size: 10px;"><br>JavaScript is like a tool to build the reaction part in HTML</span></td>
+             </span>
+            <button id="clear" style="color:rgb(219, 192, 35)">Clear</button>
+        </table>
+    </body> 
+</html>
+<script>
+    var clear = document.getElementById("clear");
+    var table =document.getElementById("table1")
+    clear.onclick = function () {
+        table.innerText = "";
+        }
+</script>

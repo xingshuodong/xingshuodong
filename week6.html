@@ -1,0 +1,65 @@
+<html>
+    <title>test for week6</title>
+    <head>FROM USER</head>
+    <body>
+        <form id="demo">
+            <p>
+                <label>Name:</label>
+                <input type="text" v-model="post.name" placeholder="Myname">
+                {{post.name}}
+            </p>
+            <p>
+                <label>Password:</label>
+                <input type="text" v-model="post.password" placeholder="Password">
+                {{post.password}}
+            </p>
+            <p>
+                <label>Email:</label>
+                <input type="text" v-model="post.email" placeholder="email@example.com">
+                {{post.email}}
+            </p>
+            <p>
+                <input type="checkbox" id="name" value="Name" v-model="checkedNames">
+                <label for="name">Name</label>
+                <input type="checkbox" id="age" value="Age" v-model="checkedNames">
+                <label for="age">Age</label>
+                <input type="checkbox" id="gender" value="Gender" v-model="checkedNames">
+                <label for="gender">Gender</label>
+                <br>
+                <span>Tag: {{ checkedNames }}</span>
+                
+
+            </p>
+            <p>
+                <select v-model="selected">
+                    <option>one</option>
+                    <option>two</option>
+                </select>
+                {{selected}}
+            </p>
+    </form>
+
+    </body>
+</html>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.6.11"></script>
+<script>
+    new Vue({
+        el:'#demo',
+        data:
+        {
+            post:{
+                password:'',
+                name:'',
+                email:'',
+            },
+            checkedNames: [],
+            list: [],
+            checked:true,
+            picked:'one',
+            selected:'two',
+        },
+
+    });
+
+    
+</script>

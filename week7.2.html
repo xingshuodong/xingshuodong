@@ -1,0 +1,32 @@
+<html>
+<head></head>
+<body>
+    <div id="testingProps">
+        <greeting-container :greeting="greeting"></person-container>
+    </div>
+    <div class="a">
+        <testb :child-name="parentName"></testb>
+    </div>
+</body>
+</html>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.6.11"></script>
+<script src="week7.2.js"></script>
+<script>
+    new Vue({    
+    el:".a",        
+    name:"A",    
+    components:{        
+        testb:{            
+            props:{                
+                childName:""
+            },            
+        template: '<p>From parent {{childName}}</p>',
+        }
+    },
+    data(){        
+        return {            
+            parentName:"Parent"
+        }
+    },
+})
+</script>

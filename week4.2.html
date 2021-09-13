@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+    <style>
+        nav{width: 100%;height: 40px;background: rgb(224, 151, 14);text-align: center; align-self: center;position: relative;}
+        a{display: inline flex;text-decoration: none; color:white;padding: 1px;line-height: 1;transition: 0.2s all linear;cursor: pointer;position: relative;top:2.5%;} a::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 100%;
+            width: 0;
+            height: 100%;
+            border-bottom: 2px solid #000;
+            transition: 0.2s all linear;
+        }
+        
+        a:hover::before {
+            width: 100%;
+            top: 0;
+            left: 0;
+            transition-delay: 0.1s;
+            border-bottom-color: #000;
+            z-index: 2;
+        }
+        
+        a:hover ~ a::before {
+            left: 0;
+        }
+        
+        a:active {
+            background: #000;
+            color: #fff;
+        }
+    </style>
+
+    <head>    
+        <title>TEST</title>   
+    </head>
+    <body>
+        <div id="appnav">
+            <div style="color:green">navagition Static</div>
+            <div>        
+                <nav>
+                <a v-for="item in navname":key="item.message">
+                    {{item.message}}
+                </a> 
+            </div>    
+            <p v-if="loginType === 'unsign'">             
+            <label>SIGN</label> 
+            <button @click="changeloginType">LOGIN</button>
+
+            </p>
+            <p v-else>
+            <label>UNSIGN</label>
+            <button @click="changeloginType">LOGOFF</button>
+
+            </p>  
+        </div>
+
+        
+
+
+</body>
+
+</html>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.6.11"></script>
+<script src=app.js></script>
+    
+
+
+
+

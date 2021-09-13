@@ -1,0 +1,52 @@
+<html>
+    <head>
+        <hgroup><h1>JS Fundamentals</h1><h2>String</h2></hgroup>
+        <style type="text/css">
+            button{
+                padding: 5px 20px;
+                height: 50px;
+                font-size: 16px;
+                }
+            input {
+            padding: 5px 20px;
+            height: 50px;
+            background-color: #3b4b59;
+            border: 1px solid #c0c0c0;
+            box-sizing: border‐box;
+            color: #fff;
+            font-size: 20px;
+        }
+
+            </style>
+           
+    </head>
+    <body>
+        <form name="test">
+        <input type="text" value="" name="tes" id="text" />
+        </form>
+        <table id="table1">
+            <tr>
+            <button id="start">search</button>
+            <tr>
+            <td id="message"></td>
+        </table>
+    </body>
+</html>
+<script>
+var sesrch = document.getElementById("start");
+var table =document.getElementById("table1");
+var index =document.getElementById("index");
+var string=document.getElementById("string");
+var text=document.getElementById("text");
+
+var index=["a","b"];
+function write(message){
+    document.getElementById("message").innerHTML += message+'<br/>';
+}
+write(index);
+start.onclick=function(){
+    string=test.tes.value;
+    write(string);
+    write(index.indexOf(string));
+}
+</script>

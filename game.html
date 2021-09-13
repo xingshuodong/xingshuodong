@@ -1,0 +1,126 @@
+<html>
+<head>
+    <title>Guess number</title>
+    <style type="text/css">
+        body {
+            padding: 100px 0;
+            background-color: #2b3b49;
+            color: #fff;
+            text-align: center;
+            font-size: 2.5em;
+        }
+
+        input {
+            padding: 5px 20px;
+            height: 50px;
+            background-color: #3b4b59;
+            border: 1px solid #c0c0c0;
+            box-sizing: border‐box;
+            color: #fff;
+            font-size: 20px;
+        }
+
+        button {
+            padding: 5px 20px;
+            height: 50px;
+            font-size: 16px;
+        }
+        div {
+            width: 800px;
+            height: 50px;
+            margin: 0 auto;
+        }
+    </style>
+
+    <script type="text/javascript">
+
+        
+    window.onload = function () {
+        function getRandom(min, max) {
+            return parseInt((Math.random() * (max - min)) + min);
+        }
+            var num = document.getElementById("num");
+            var start = document.getElementById("start");
+            var show = document.getElementById('show');
+            var preNum = document.getElementById('preNum');
+            var restart = document.getElementById("restart");
+
+
+            function game() {
+                var flag = 0;
+                var ran = getRandom(0, 100);
+                start.onclick = function () {
+                    var val = num.value;
+                    show.style.display = "block";
+                    if (val >0 && val < 100) {
+                        flag += 1;                       
+                        var showResult = preNum.innerText;
+                        preNum.innerText = showResult ? showResult + "，" + val : val;
+                     
+
+                        if (flag < 11) {
+                            
+                            if (val < ran) {
+                                document.getElementById("attempt").innerHTML="Attempt time:"+flag;
+                                show.innerText = "Smaller";
+                                show.style.backgroundColor = "red";
+
+                            } else if (val > ran) {
+                                document.getElementById("attempt").innerHTML="Attempt time:"+flag;
+                                show.innerText = "Bigger";
+                                show.style.backgroundColor = "red";
+
+                            } else {
+                                document.getElementById("attempt").innerHTML="Attempt time:"+flag;
+                                show.innerText = "You are correct!";
+                                show.style.backgroundColor = "green";
+
+                                this.disabled = "disabled";
+                                num.disabled = "disabled";
+                            }
+                        } 
+                        else {
+                            show.innerText = "Used up 10 times, restart to try again！";
+                            show.style.backgroundColor = "red";
+                        }
+                    } 
+                    else {
+                        show.innerText = "Please input number between 1 to 100";
+                        show.style.backgroundColor = "red";
+                    }
+
+                }
+               
+
+
+            }
+
+
+            game();
+
+            restart.onclick = function () {
+                start.removeAttribute("disabled");
+                num.removeAttribute("disabled");
+                show.style.display = "none"; 
+                preNum.innerText = "";
+                attempt.innerHTML="";
+                num.value = "";
+                game();
+            }
+
+
+        }
+    </script>
+</head>
+<body>
+    <h1>Guess a number</h1>
+    <p>The number is between 1 to 100, 10 times to guess it.</p>
+    <input type="number" min="0" max="100" name="num" id="num" />
+    <br>
+    <button id="start">Try</button><br>
+    <p>Guessed number: <span id="preNum"></span></p>
+    <p1 id=attempt></p1>
+    <div id="show" style="display:none"></div>
+    <button id="restart">Restart</button>
+</body>
+</html>
